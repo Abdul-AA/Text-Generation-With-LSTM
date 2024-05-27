@@ -1,0 +1,5 @@
+hidden_units: 512
+lr: 0.001
+num_chars: 29
+num_layers: 2
+seq_length: 100
