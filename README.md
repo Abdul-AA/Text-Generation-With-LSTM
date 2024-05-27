@@ -22,41 +22,7 @@ An LSTM network was chosen due to its ability to capture long-term dependencies 
 - **Dropout Layer**: Adds regularization to prevent overfitting.
 - **Fully Connected Layer**: Projects LSTM outputs to the character set size.
 
-#### Model Architecture Diagram
-\begin{figure}[h]
-    \centering
-    \begin{tikzpicture}
-        % Input layer
-        \node at (0, 0) [circle, draw, minimum size=1cm] (input) {Input};
-        
-        % Embedding layer
-        \node at (3, 0) [rectangle, draw, minimum width=3cm, minimum height=1cm] (embed) {Embedding Layer};
-        
-        % LSTM layers
-        \node at (7, 1.5) [rectangle, draw, minimum width=3cm, minimum height=1cm] (lstm1) {LSTM Layer 1};
-        \node at (7, -1.5) [rectangle, draw, minimum width=3cm, minimum height=1cm] (lstm2) {LSTM Layer 2};
-        
-        % Dropout layer
-        \node at (11, 0) [rectangle, draw, minimum width=3cm, minimum height=1cm] (dropout) {Dropout Layer};
-        
-        % Fully connected layer
-        \node at (15, 0) [rectangle, draw, minimum width=3cm, minimum height=1cm] (fc) {Fully Connected Layer};
-        
-        % Output layer
-        \node at (18, 0) [circle, draw, minimum size=1cm] (output) {Output};
-        
-        % Connections
-        \draw[->] (input) -- (embed);
-        \draw[->] (embed) -- (lstm1);
-        \draw[->] (embed) -- (lstm2);
-        \draw[->] (lstm1) -- (dropout);
-        \draw[->] (lstm2) -- (dropout);
-        \draw[->] (dropout) -- (fc);
-        \draw[->] (fc) -- (output);
-    \end{tikzpicture}
-    \caption{Detailed LSTM Model Architecture}
-    \label{fig:architecture}
-\end{figure}
+
 
 ### Training
 The model was trained using the Adam optimizer. Early stopping was implemented to prevent overfitting, and model checkpoints were used to save the best-performing model based on validation loss. The final validation loss achieved was 0.253, after which the early stopping criterion was triggered, indicating no improvement in the last 10 epochs.
